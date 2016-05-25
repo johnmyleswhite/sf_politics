@@ -410,7 +410,7 @@
 "District 5 Democratic Club","Proposition","Local D","Yes"
 "District 5 Democratic Club","Proposition","Local E","Yes"
 "District 5 Democratic Club","Proposition","Regional AA","Yes"
-"District 5 Democratic Club","Proposition","State 50","No"
+"District 5 Democratic Club","Proposition","State 50",NA
 "District 5 Democratic Club","State Senate","Jane Kim","No"
 "District 5 Democratic Club","State Senate","Scott Wiener","Yes"
 "Harvey Milk LGBT Democratic Club","District 17","Aaron Peskin","Yes"
@@ -474,12 +474,12 @@
 "Harvey Milk LGBT Democratic Club","District 19","Tom A. Hsieh, Jr.","No"
 "Harvey Milk LGBT Democratic Club","District 19","Trevor McNeil","No"
 "Harvey Milk LGBT Democratic Club","Proposition","Local A","Yes"
-"Harvey Milk LGBT Democratic Club","Proposition","Local B",NA
+"Harvey Milk LGBT Democratic Club","Proposition","Local B","Abstain"
 "Harvey Milk LGBT Democratic Club","Proposition","Local C","Yes"
 "Harvey Milk LGBT Democratic Club","Proposition","Local D","Yes"
 "Harvey Milk LGBT Democratic Club","Proposition","Local E","Yes"
 "Harvey Milk LGBT Democratic Club","Proposition","Regional AA","Yes"
-"Harvey Milk LGBT Democratic Club","Proposition","State 50",NA
+"Harvey Milk LGBT Democratic Club","Proposition","State 50","Abstain"
 "Harvey Milk LGBT Democratic Club","State Senate","Jane Kim","Yes"
 "Harvey Milk LGBT Democratic Club","State Senate","Scott Wiener","No"
 "Jon Golinger","District 17","Aaron Peskin","Yes"
@@ -659,27 +659,27 @@
 "Noe Valley Democratic Club","District 17","Wade Woods","No"
 "Noe Valley Democratic Club","District 17","Wendy Ha Chau","No"
 "Noe Valley Democratic Club","District 17","Zoe Dunning","Yes"
-"Noe Valley Democratic Club","District 19","Angela Alioto",""
-"Noe Valley Democratic Club","District 19","Bill Fazio",""
-"Noe Valley Democratic Club","District 19","Brigitte Davila",""
-"Noe Valley Democratic Club","District 19","Emily Murase",""
-"Noe Valley Democratic Club","District 19","Eric Mar",""
-"Noe Valley Democratic Club","District 19","Gabriel Medina",""
-"Noe Valley Democratic Club","District 19","Hene Kelly",""
-"Noe Valley Democratic Club","District 19","Joel Engardio",""
-"Noe Valley Democratic Club","District 19","Kat Anderson",""
-"Noe Valley Democratic Club","District 19","Keith Baraka",""
-"Noe Valley Democratic Club","District 19","Leah LaCroix",""
-"Noe Valley Democratic Club","District 19","Marjan Philhour",""
-"Noe Valley Democratic Club","District 19","Mark Farrell",""
-"Noe Valley Democratic Club","District 19","Mary Jung",""
-"Noe Valley Democratic Club","District 19","Myrna Melgar",""
-"Noe Valley Democratic Club","District 19","Norman Yee",""
-"Noe Valley Democratic Club","District 19","Rachel Norton",""
-"Noe Valley Democratic Club","District 19","Samuel Kwong",""
-"Noe Valley Democratic Club","District 19","Sandra Lee Fewer",""
-"Noe Valley Democratic Club","District 19","Tom A. Hsieh, Jr.",""
-"Noe Valley Democratic Club","District 19","Trevor McNeil",""
+"Noe Valley Democratic Club","District 19","Angela Alioto",NA
+"Noe Valley Democratic Club","District 19","Bill Fazio",NA
+"Noe Valley Democratic Club","District 19","Brigitte Davila",NA
+"Noe Valley Democratic Club","District 19","Emily Murase",NA
+"Noe Valley Democratic Club","District 19","Eric Mar",NA
+"Noe Valley Democratic Club","District 19","Gabriel Medina",NA
+"Noe Valley Democratic Club","District 19","Hene Kelly",NA
+"Noe Valley Democratic Club","District 19","Joel Engardio",NA
+"Noe Valley Democratic Club","District 19","Kat Anderson",NA
+"Noe Valley Democratic Club","District 19","Keith Baraka",NA
+"Noe Valley Democratic Club","District 19","Leah LaCroix",NA
+"Noe Valley Democratic Club","District 19","Marjan Philhour",NA
+"Noe Valley Democratic Club","District 19","Mark Farrell",NA
+"Noe Valley Democratic Club","District 19","Mary Jung",NA
+"Noe Valley Democratic Club","District 19","Myrna Melgar",NA
+"Noe Valley Democratic Club","District 19","Norman Yee",NA
+"Noe Valley Democratic Club","District 19","Rachel Norton",NA
+"Noe Valley Democratic Club","District 19","Samuel Kwong",NA
+"Noe Valley Democratic Club","District 19","Sandra Lee Fewer",NA
+"Noe Valley Democratic Club","District 19","Tom A. Hsieh, Jr.",NA
+"Noe Valley Democratic Club","District 19","Trevor McNeil",NA
 "Noe Valley Democratic Club","Proposition","Local A","Yes"
 "Noe Valley Democratic Club","Proposition","Local B","Yes"
 "Noe Valley Democratic Club","Proposition","Local C","Yes"
@@ -728,27 +728,27 @@
 "Potrero Hill Democratic Club","District 17","Wade Woods","No"
 "Potrero Hill Democratic Club","District 17","Wendy Ha Chau","No"
 "Potrero Hill Democratic Club","District 17","Zoe Dunning","No"
-"Potrero Hill Democratic Club","District 19","Angela Alioto",""
-"Potrero Hill Democratic Club","District 19","Bill Fazio",""
-"Potrero Hill Democratic Club","District 19","Brigitte Davila",""
-"Potrero Hill Democratic Club","District 19","Emily Murase",""
-"Potrero Hill Democratic Club","District 19","Eric Mar",""
-"Potrero Hill Democratic Club","District 19","Gabriel Medina",""
-"Potrero Hill Democratic Club","District 19","Hene Kelly",""
-"Potrero Hill Democratic Club","District 19","Joel Engardio",""
-"Potrero Hill Democratic Club","District 19","Kat Anderson",""
-"Potrero Hill Democratic Club","District 19","Keith Baraka",""
-"Potrero Hill Democratic Club","District 19","Leah LaCroix",""
-"Potrero Hill Democratic Club","District 19","Marjan Philhour",""
-"Potrero Hill Democratic Club","District 19","Mark Farrell",""
-"Potrero Hill Democratic Club","District 19","Mary Jung",""
-"Potrero Hill Democratic Club","District 19","Myrna Melgar",""
-"Potrero Hill Democratic Club","District 19","Norman Yee",""
-"Potrero Hill Democratic Club","District 19","Rachel Norton",""
-"Potrero Hill Democratic Club","District 19","Samuel Kwong",""
-"Potrero Hill Democratic Club","District 19","Sandra Lee Fewer",""
-"Potrero Hill Democratic Club","District 19","Tom A. Hsieh, Jr.",""
-"Potrero Hill Democratic Club","District 19","Trevor McNeil",""
+"Potrero Hill Democratic Club","District 19","Angela Alioto",NA
+"Potrero Hill Democratic Club","District 19","Bill Fazio",NA
+"Potrero Hill Democratic Club","District 19","Brigitte Davila",NA
+"Potrero Hill Democratic Club","District 19","Emily Murase",NA
+"Potrero Hill Democratic Club","District 19","Eric Mar",NA
+"Potrero Hill Democratic Club","District 19","Gabriel Medina",NA
+"Potrero Hill Democratic Club","District 19","Hene Kelly",NA
+"Potrero Hill Democratic Club","District 19","Joel Engardio",NA
+"Potrero Hill Democratic Club","District 19","Kat Anderson",NA
+"Potrero Hill Democratic Club","District 19","Keith Baraka",NA
+"Potrero Hill Democratic Club","District 19","Leah LaCroix",NA
+"Potrero Hill Democratic Club","District 19","Marjan Philhour",NA
+"Potrero Hill Democratic Club","District 19","Mark Farrell",NA
+"Potrero Hill Democratic Club","District 19","Mary Jung",NA
+"Potrero Hill Democratic Club","District 19","Myrna Melgar",NA
+"Potrero Hill Democratic Club","District 19","Norman Yee",NA
+"Potrero Hill Democratic Club","District 19","Rachel Norton",NA
+"Potrero Hill Democratic Club","District 19","Samuel Kwong",NA
+"Potrero Hill Democratic Club","District 19","Sandra Lee Fewer",NA
+"Potrero Hill Democratic Club","District 19","Tom A. Hsieh, Jr.",NA
+"Potrero Hill Democratic Club","District 19","Trevor McNeil",NA
 "Potrero Hill Democratic Club","Proposition","Local A","Yes"
 "Potrero Hill Democratic Club","Proposition","Local B","No"
 "Potrero Hill Democratic Club","Proposition","Local C","Yes"
@@ -1375,8 +1375,8 @@
 "SF Green Party","Proposition","Local C","Yes"
 "SF Green Party","Proposition","Local D","Yes"
 "SF Green Party","Proposition","Local E","Yes"
-"SF Green Party","Proposition","Regional AA","No"
-"SF Green Party","Proposition","State 50","No"
+"SF Green Party","Proposition","Regional AA","Abstain"
+"SF Green Party","Proposition","State 50","Abstain"
 "SF Green Party","State Senate","Jane Kim",NA
 "SF Green Party","State Senate","Scott Wiener",NA
 "SF Moderates","District 17","Aaron Peskin","No"
@@ -1655,7 +1655,7 @@
 "SF YIMBY","Proposition","State 50",NA
 "SF YIMBY","State Senate","Jane Kim",NA
 "SF YIMBY","State Senate","Scott Wiener",NA
-"SF4ALL","District 17","Aaron Peskin","No"
+"SF4ALL","District 17","Aaron Peskin","Yes"
 "SF4ALL","District 17","Alix Rosenthal","No"
 "SF4ALL","District 17","Alysabeth Alexander","Yes"
 "SF4ALL","District 17","Arlo Hale Smith","No"
@@ -1715,12 +1715,12 @@
 "SF4ALL","District 19","Sandra Lee Fewer","Yes"
 "SF4ALL","District 19","Tom A. Hsieh, Jr.","No"
 "SF4ALL","District 19","Trevor McNeil","No"
-"SF4ALL","Proposition","Local A",NA
+"SF4ALL","Proposition","Local A","Abstain"
 "SF4ALL","Proposition","Local B","No"
 "SF4ALL","Proposition","Local C","Yes"
-"SF4ALL","Proposition","Local D",NA
-"SF4ALL","Proposition","Local E",NA
-"SF4ALL","Proposition","Regional AA",NA
+"SF4ALL","Proposition","Local D","Abstain"
+"SF4ALL","Proposition","Local E","Abstain"
+"SF4ALL","Proposition","Regional AA","Abstain"
 "SF4ALL","Proposition","State 50",NA
 "SF4ALL","State Senate","Jane Kim","Yes"
 "SF4ALL","State Senate","Scott Wiener","No"
@@ -1793,7 +1793,7 @@
 "San Francisco Apartment Association","Proposition","State 50",NA
 "San Francisco Apartment Association","State Senate","Jane Kim","No"
 "San Francisco Apartment Association","State Senate","Scott Wiener","Yes"
-"San Francisco Latino Democratic Club","District 17","Aaron Peskin","No"
+"San Francisco Latino Democratic Club","District 17","Aaron Peskin","Yes"
 "San Francisco Latino Democratic Club","District 17","Alix Rosenthal","No"
 "San Francisco Latino Democratic Club","District 17","Alysabeth Alexander","Yes"
 "San Francisco Latino Democratic Club","District 17","Arlo Hale Smith","No"
@@ -1854,7 +1854,7 @@
 "San Francisco Latino Democratic Club","District 19","Tom A. Hsieh, Jr.","No"
 "San Francisco Latino Democratic Club","District 19","Trevor McNeil","No"
 "San Francisco Latino Democratic Club","Proposition","Local A","Yes"
-"San Francisco Latino Democratic Club","Proposition","Local B",NA
+"San Francisco Latino Democratic Club","Proposition","Local B","Abstain"
 "San Francisco Latino Democratic Club","Proposition","Local C","Yes"
 "San Francisco Latino Democratic Club","Proposition","Local D","Yes"
 "San Francisco Latino Democratic Club","Proposition","Local E","Yes"
@@ -1991,10 +1991,10 @@
 "San Francisco Tenants Union","District 19","Sandra Lee Fewer","Yes"
 "San Francisco Tenants Union","District 19","Tom A. Hsieh, Jr.","No"
 "San Francisco Tenants Union","District 19","Trevor McNeil","No"
-"San Francisco Tenants Union","Proposition","Local A",NA
+"San Francisco Tenants Union","Proposition","Local A","Abstain"
 "San Francisco Tenants Union","Proposition","Local B","No"
 "San Francisco Tenants Union","Proposition","Local C","Yes"
-"San Francisco Tenants Union","Proposition","Local D",NA
+"San Francisco Tenants Union","Proposition","Local D","Abstain"
 "San Francisco Tenants Union","Proposition","Local E","Yes"
 "San Francisco Tenants Union","Proposition","Regional AA","Yes"
 "San Francisco Tenants Union","Proposition","State 50",NA
@@ -2246,27 +2246,27 @@
 "South Beach District 6 Democratic Club","District 17","Wade Woods","No"
 "South Beach District 6 Democratic Club","District 17","Wendy Ha Chau","No"
 "South Beach District 6 Democratic Club","District 17","Zoe Dunning","Yes"
-"South Beach District 6 Democratic Club","District 19","Angela Alioto",""
-"South Beach District 6 Democratic Club","District 19","Bill Fazio",""
-"South Beach District 6 Democratic Club","District 19","Brigitte Davila",""
-"South Beach District 6 Democratic Club","District 19","Emily Murase",""
-"South Beach District 6 Democratic Club","District 19","Eric Mar",""
-"South Beach District 6 Democratic Club","District 19","Gabriel Medina",""
-"South Beach District 6 Democratic Club","District 19","Hene Kelly",""
-"South Beach District 6 Democratic Club","District 19","Joel Engardio",""
-"South Beach District 6 Democratic Club","District 19","Kat Anderson",""
-"South Beach District 6 Democratic Club","District 19","Keith Baraka",""
-"South Beach District 6 Democratic Club","District 19","Leah LaCroix",""
-"South Beach District 6 Democratic Club","District 19","Marjan Philhour",""
-"South Beach District 6 Democratic Club","District 19","Mark Farrell",""
-"South Beach District 6 Democratic Club","District 19","Mary Jung",""
-"South Beach District 6 Democratic Club","District 19","Myrna Melgar",""
-"South Beach District 6 Democratic Club","District 19","Norman Yee",""
-"South Beach District 6 Democratic Club","District 19","Rachel Norton",""
-"South Beach District 6 Democratic Club","District 19","Samuel Kwong",""
-"South Beach District 6 Democratic Club","District 19","Sandra Lee Fewer",""
-"South Beach District 6 Democratic Club","District 19","Tom A. Hsieh, Jr.",""
-"South Beach District 6 Democratic Club","District 19","Trevor McNeil",""
+"South Beach District 6 Democratic Club","District 19","Angela Alioto",NA
+"South Beach District 6 Democratic Club","District 19","Bill Fazio",NA
+"South Beach District 6 Democratic Club","District 19","Brigitte Davila",NA
+"South Beach District 6 Democratic Club","District 19","Emily Murase",NA
+"South Beach District 6 Democratic Club","District 19","Eric Mar",NA
+"South Beach District 6 Democratic Club","District 19","Gabriel Medina",NA
+"South Beach District 6 Democratic Club","District 19","Hene Kelly",NA
+"South Beach District 6 Democratic Club","District 19","Joel Engardio",NA
+"South Beach District 6 Democratic Club","District 19","Kat Anderson",NA
+"South Beach District 6 Democratic Club","District 19","Keith Baraka",NA
+"South Beach District 6 Democratic Club","District 19","Leah LaCroix",NA
+"South Beach District 6 Democratic Club","District 19","Marjan Philhour",NA
+"South Beach District 6 Democratic Club","District 19","Mark Farrell",NA
+"South Beach District 6 Democratic Club","District 19","Mary Jung",NA
+"South Beach District 6 Democratic Club","District 19","Myrna Melgar",NA
+"South Beach District 6 Democratic Club","District 19","Norman Yee",NA
+"South Beach District 6 Democratic Club","District 19","Rachel Norton",NA
+"South Beach District 6 Democratic Club","District 19","Samuel Kwong",NA
+"South Beach District 6 Democratic Club","District 19","Sandra Lee Fewer",NA
+"South Beach District 6 Democratic Club","District 19","Tom A. Hsieh, Jr.",NA
+"South Beach District 6 Democratic Club","District 19","Trevor McNeil",NA
 "South Beach District 6 Democratic Club","Proposition","Local A","Yes"
 "South Beach District 6 Democratic Club","Proposition","Local B","Yes"
 "South Beach District 6 Democratic Club","Proposition","Local C","Yes"
