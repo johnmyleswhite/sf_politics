@@ -13,7 +13,7 @@ library("stringr")
 
 # Set a flag to determine whether we perform computationally intensive and
 # exact calculations or use faster approaches during interactive development.
-interactive_mode <- TRUE
+interactive_mode <- FALSE
 
 # In interactive development, we do very light MCMC computations even though
 # the resulting estimates are quite bad. For production results, we do much
@@ -168,25 +168,3 @@ ggsave(
     height = 14,
     width = 10
 )
-
-###############################################################################
-#
-# Use k-means clustering to think about the number of distinct slate cards.
-#
-###############################################################################
-
-# Make a copy of the data before we mutate it.
-M2 <- M
-
-# Impute missing values so that k-means will work better.
-M2[is.na(M2)] <- mean(M2, na.rm = TRUE)
-
-# Use 8 clusters
-k <- 8
-
-# Display the clusters that each endorser is assigned to.
-data.frame(
-    endorser = wide_endorsements$endorser,
-    cluster = kmeans(M2, k)$cluster
-) %>%
-    arrange(cluster)
