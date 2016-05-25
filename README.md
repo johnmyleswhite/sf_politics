@@ -15,6 +15,8 @@ To reproduce results, run:
 
     make all
 
+The full analysis takes about 5 hours to run on a 2013 MacBook Pro laptop.
+
 To remove the results, run:
 
     make clean
