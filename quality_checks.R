@@ -2,7 +2,10 @@
 library("dplyr")
 
 # Load the data.
-df <- read.csv("endorsements.csv", stringsAsFactors = FALSE)
+df <- read.csv(
+    file.path("data", "endorsements.csv"),
+    stringsAsFactors = FALSE
+)
 
 # Check how many endorsements we have per category. All of these should be
 # multiples of the number of endorsers.

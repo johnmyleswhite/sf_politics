@@ -22,12 +22,15 @@ if (interactive_mode) {
     mcmc_iter <- 10000
     mcmc_thin <- 100
 } else {
-    mcmc_iter <- 2500000
+    mcmc_iter <- 10000000
     mcmc_thin <- 1000
 }
 
 # Load the raw data in long form.
-endorsements <- read.csv("endorsements.csv", stringsAsFactors = FALSE)
+endorsements <- read.csv(
+    file.path("data", "endorsements.csv"),
+    stringsAsFactors = FALSE
+)
 
 # Replace verbal endorsement labels with numbers.
 endorsements <- transform(
@@ -93,28 +96,42 @@ candidate_names <- sapply(
 )
 
 # Store ideal points for endorsers.
-ideal_points <- data.frame(
+ideal_points_endorsers <- data.frame(
     endorser = wide_endorsements$endorser,
     lower = apply(res$x[, , 1], 2, function (v) {quantile(v, 0.025)}),
     mean = apply(res$x[, , 1], 2, mean),
     upper = apply(res$x[, , 1], 2, function (v) {quantile(v, 1 - 0.025)})
 )
 
+# Save the ideal points to a CSV file.
+write.csv(
+    ideal_points_endorsers,
+    file = file.path("ideal_points", "endorsers.csv"),
+    row.names = FALSE
+)
+
 # Plot ideal points for endorsers.
-ggplot(
-    ideal_points,
+p <- ggplot(
+    ideal_points_endorsers,
     aes(x = reorder(endorser, mean), y = mean)
 ) +
     geom_point() +
     geom_errorbar(aes(ymin = lower, ymax = upper)) +
+    geom_hline(xintercept = 0, alpha = 0.3) +
     xlab("") +
     ylab("Ideal Point") +
     coord_flip() +
     theme_bw()
-ggsave("endorsers.png", height = 14, width = 10)
+
+# Save the plot to a PNG file.
+ggsave(
+    file.path("ideal_points", "endorsers.png"),
+    height = 14,
+    width = 10
+)
 
 # Store ideal points for candidates.
-ideal_points_v2 <- data.frame(
+ideal_points_candidates <- data.frame(
     category = candidate_categories,
     name = candidate_names,
     lower = apply(res$beta[, , 1], 2, function (v) {quantile(v, 0.025)}),
@@ -122,9 +139,16 @@ ideal_points_v2 <- data.frame(
     upper = apply(res$beta[, , 1], 2, function (v) {quantile(v, 1 - 0.025)})
 )
 
+# Save the ideal points to a CSV file.
+write.csv(
+    ideal_points_candidates,
+    file = file.path("ideal_points", "candidates.csv"),
+    row.names = FALSE
+)
+
 # Plot ideal points for candidates.
-ggplot(
-    ideal_points_v2,
+p <- ggplot(
+    ideal_points_candidates,
     aes(
         x = reorder(paste(category, name, sep = " - "), mean),
         y = mean
@@ -132,11 +156,18 @@ ggplot(
 ) +
     geom_point() +
     geom_errorbar(aes(ymin = lower, ymax = upper)) +
+    geom_hline(xintercept = 0, alpha = 0.3) +
     xlab("") +
     ylab("Ideal Point") +
     coord_flip() +
     theme_bw()
-ggsave("candidates.png", height = 14, width = 10)
+
+# Save the plot to a PNG file.
+ggsave(
+    file.path("ideal_points", "candidates.png"),
+    height = 14,
+    width = 10
+)
 
 ###############################################################################
 #

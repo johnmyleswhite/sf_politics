@@ -8,3 +8,13 @@ regarding:
 * 21 District 19 DCCC candidates
 * 7 propositions
 * 2 State Senate candidates (Wiener and Kim)
+
+# Reproducing Results
+
+To reproduce results, run:
+
+    make all
+
+To remove the results, run:
+
+    make clean
