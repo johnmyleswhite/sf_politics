@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# Setup everything for analysis.
+# Set up everything for analysis.
 #
 ###############################################################################
 
@@ -43,31 +43,70 @@ wide_endorsements <- dcast(
 # the endorsers.
 M <- as.matrix(wide_endorsements[, 2:ncol(wide_endorsements)])
 
-# The pscl package requires that we place our matrix into a rollcall object.
-rcall <- rollcall(M)
-
 # Compute 1-dimensional ideal points.
-res <- ideal(rcall, d = 1, impute = TRUE, normalize = TRUE)
+res <- ideal(
+    rollcall(M),
+    d = 1,
+    dropList = list(
+        codes = "notInLegis",
+        lop = 0
+    ),
+    impute = TRUE,
+    normalize = TRUE,
+    maxiter = 250000,
+    store.item = TRUE,
+    verbose = FALSE
+)
 
-# Display the ideal points for endorsers.
-data.frame(
+# Unanimous candidates don't get ideal points, so we find the subset of names
+# that will have ideal points.
+# TODO: Remove hardcoded 70.
+# TODO: Prettify names.
+valid_names <- names(wide_endorsements)[2:70][
+    apply(M, 2, function (col) {var(col, na.rm = TRUE)}) > 0
+]
+
+# Store ideal points for endorsers.
+ideal_points <- data.frame(
     endorser = wide_endorsements$endorser,
-    ideal_point = res$xbar[, 1]
-) %>%
-    arrange(ideal_point)
+    lower = apply(res$x[, , 1], 2, function (v) {quantile(v, 0.025)}),
+    mean = apply(res$x[, , 1], 2, mean),
+    upper = apply(res$x[, , 1], 2, function (v) {quantile(v, 1 - 0.025)})
+)
 
-# Perform a similar analysis but focus attention on the candidates.
-rcall <- rollcall(t(M))
+# Plot ideal points for endorsers.
+ggplot(
+    ideal_points,
+    aes(x = reorder(endorser, mean), y = mean)
+) +
+    geom_point() +
+    geom_errorbar(aes(ymin = lower, ymax = upper)) +
+    xlab("") +
+    ylab("Ideal Point") +
+    coord_flip() +
+    theme_bw()
+ggsave("endorsers.png", height = 14, width = 10)
 
-# Again, compute 1-dimensional ideal points.
-res <- ideal(rcall, d = 1, impute = TRUE, normalize = TRUE)
+# Store ideal points for candidates.
+ideal_points_v2 <- data.frame(
+    endorser = valid_names,
+    lower = apply(res$beta[, , 1], 2, function (v) {quantile(v, 0.025)}),
+    mean = apply(res$beta[, , 1], 2, mean),
+    upper = apply(res$beta[, , 1], 2, function (v) {quantile(v, 1 - 0.025)})
+)
 
-# Display the ideal points for candidates.
-data.frame(
-    candidate = row.names(t(M)),
-    ideal_point = res$xbar[, 1]
-) %>%
-    arrange(ideal_point)
+# Plot ideal points for candidates.
+ggplot(
+    ideal_points_v2,
+    aes(x = reorder(endorser, mean), y = mean)
+) +
+    geom_point() +
+    geom_errorbar(aes(ymin = lower, ymax = upper)) +
+    xlab("") +
+    ylab("Ideal Point") +
+    coord_flip() +
+    theme_bw()
+ggsave("candidates.png", height = 14, width = 10)
 
 ###############################################################################
 #
