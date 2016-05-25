@@ -133,10 +133,11 @@ ggsave(
 # Store ideal points for candidates.
 ideal_points_candidates <- data.frame(
     category = candidate_categories,
-    name = candidate_names,
+    candidate = candidate_names,
     lower = apply(res$beta[, , 1], 2, function (v) {quantile(v, 0.025)}),
     mean = apply(res$beta[, , 1], 2, mean),
-    upper = apply(res$beta[, , 1], 2, function (v) {quantile(v, 1 - 0.025)})
+    upper = apply(res$beta[, , 1], 2, function (v) {quantile(v, 1 - 0.025)}),
+    stringsAsFactors = FALSE
 )
 
 # Save the ideal points to a CSV file.
@@ -146,12 +147,31 @@ write.csv(
     row.names = FALSE
 )
 
+# Enumerate candidates on the two core slates.
+candidate_slates <- rbind(
+    endorsements %>%
+        filter(endorser == "Progress Dems", endorsement == 1) %>%
+        mutate(slate = "Progress"),
+    endorsements %>%
+        filter(endorser == "SF Tenants and Families", endorsement == 1) %>%
+        mutate(slate = "Reform")
+) %>%
+    dplyr:::select(category, candidate, slate)
+
+# Join in information about slates.
+ideal_points_candidates <- left_join(
+    ideal_points_candidates,
+    candidate_slates,
+    by = c("category", "candidate")
+)
+
 # Plot ideal points for candidates.
 p <- ggplot(
     ideal_points_candidates,
     aes(
-        x = reorder(paste(category, name, sep = " - "), mean),
-        y = mean
+        x = reorder(paste(category, candidate, sep = " - "), mean),
+        y = mean,
+        color = slate
     )
 ) +
     geom_point() +
