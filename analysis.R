@@ -1,14 +1,30 @@
 ###############################################################################
 #
-# Set up everything for analysis.
+# Set up everything for ideal point analysis.
 #
 ###############################################################################
 
-# We use the following packages:
+# We use the following packages.
 library("ggplot2")
 library("dplyr")
 library("reshape2")
 library("pscl")
+library("stringr")
+
+# Set a flag to determine whether we perform computationally intensive and
+# exact calculations or use faster approaches during interactive development.
+interactive_mode <- TRUE
+
+# In interactive development, we do very light MCMC computations even though
+# the resulting estimates are quite bad. For production results, we do much
+# more computation.
+if (interactive_mode) {
+    mcmc_iter <- 10000
+    mcmc_thin <- 100
+} else {
+    mcmc_iter <- 2500000
+    mcmc_thin <- 1000
+}
 
 # Load the raw data in long form.
 endorsements <- read.csv("endorsements.csv", stringsAsFactors = FALSE)
@@ -33,6 +49,10 @@ wide_endorsements <- dcast(
     value.var = "endorsement"
 )
 
+# Store these constants for use downstream.
+n_endorsers <- nrow(wide_endorsements)
+n_candidates <- ncol(wide_endorsements) - 1
+
 ###############################################################################
 #
 # Compute ideal points.
@@ -41,30 +61,36 @@ wide_endorsements <- dcast(
 
 # Convert the endorsements data.frame into a matrix after removing the names of
 # the endorsers.
-M <- as.matrix(wide_endorsements[, 2:ncol(wide_endorsements)])
+M <- as.matrix(wide_endorsements[, (1 + 1):(n_candidates + 1)])
 
 # Compute 1-dimensional ideal points.
 res <- ideal(
     rollcall(M),
     d = 1,
-    dropList = list(
-        codes = "notInLegis",
-        lop = 0
-    ),
     impute = TRUE,
     normalize = TRUE,
-    maxiter = 250000,
     store.item = TRUE,
-    verbose = FALSE
+    maxiter = mcmc_iter,
+    thin = mcmc_thin
 )
 
 # Unanimous candidates don't get ideal points, so we find the subset of names
-# that will have ideal points.
-# TODO: Remove hardcoded 70.
-# TODO: Prettify names.
-valid_names <- names(wide_endorsements)[2:70][
-    apply(M, 2, function (col) {var(col, na.rm = TRUE)}) > 0
-]
+# that will have ideal points by looking for candidates that had variance
+# in the endorsements they elicited.
+has_variance <- apply(M, 2, function (col) {var(col, na.rm = TRUE)}) > 0
+candidate_names <- names(wide_endorsements)[(1 + 1):(n_candidates + 1)]
+valid_names <- candidate_names[has_variance]
+
+# The names we're using are a mixture of category information and genuine
+# names, so we split them apart again.
+candidate_categories <- sapply(
+    strsplit(valid_names, "_"),
+    function (pair) {pair[1]}
+)
+candidate_names <- sapply(
+    strsplit(valid_names, "_"),
+    function (pair) {pair[2]}
+)
 
 # Store ideal points for endorsers.
 ideal_points <- data.frame(
@@ -89,7 +115,8 @@ ggsave("endorsers.png", height = 14, width = 10)
 
 # Store ideal points for candidates.
 ideal_points_v2 <- data.frame(
-    endorser = valid_names,
+    category = candidate_categories,
+    name = candidate_names,
     lower = apply(res$beta[, , 1], 2, function (v) {quantile(v, 0.025)}),
     mean = apply(res$beta[, , 1], 2, mean),
     upper = apply(res$beta[, , 1], 2, function (v) {quantile(v, 1 - 0.025)})
@@ -98,7 +125,10 @@ ideal_points_v2 <- data.frame(
 # Plot ideal points for candidates.
 ggplot(
     ideal_points_v2,
-    aes(x = reorder(endorser, mean), y = mean)
+    aes(
+        x = reorder(paste(category, name, sep = " - "), mean),
+        y = mean
+    )
 ) +
     geom_point() +
     geom_errorbar(aes(ymin = lower, ymax = upper)) +
