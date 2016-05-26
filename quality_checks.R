@@ -7,6 +7,9 @@ df <- read.csv(
     stringsAsFactors = FALSE
 )
 
+# Check that we only use "Yes", "No", "Abstain" and NA.
+unique(df$endorsement)
+
 # Check how many endorsements we have per category. All of these should be
 # multiples of the number of endorsers.
 df %>%
