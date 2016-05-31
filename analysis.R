@@ -157,7 +157,8 @@ p <- ggplot(
     xlab("") +
     ylab("Ideal Point") +
     coord_flip() +
-    theme_bw()
+    theme_bw() +
+    theme(text = element_text(family = "mono"))
 
 # Save the plot to a PNG file.
 ggsave(
@@ -214,6 +215,12 @@ ideal_points_candidates <- left_join(
     by = c("category", "candidate")
 )
 
+# Mark unaffiliated candidates.
+ideal_points_candidates <- transform(
+    ideal_points_candidates,
+    slate = ifelse(is.na(slate), "Unaffiliated", slate)
+)
+
 # Make pretty-printable names by padding strings before concatenating them.
 longest_category_name <-  with(
     ideal_points_candidates,
@@ -245,8 +252,9 @@ ideal_points_candidates <- transform(
 )
 
 # Plot ideal points for candidates.
-ggplot(
-    ideal_points_candidates,
+dccc <- c("District 17", "District 19")
+p <- ggplot(
+    ideal_points_candidates %>% filter(category %in% dccc),
     aes(
         x = reorder(full_name, mean),
         y = mean,
@@ -264,7 +272,31 @@ ggplot(
 
 # Save the plot to a PNG file.
 ggsave(
-    file.path("ideal_points", "candidates.png"),
+    file.path("ideal_points", "dccc.png"),
     height = 14,
+    width = 10
+)
+
+# Plot ideal points for props.
+p <- ggplot(
+    ideal_points_candidates %>% filter(category == "Proposition"),
+    aes(
+        x = reorder(full_name, mean),
+        y = mean
+    )
+) +
+    geom_point() +
+    geom_errorbar(aes(ymin = lower, ymax = upper)) +
+    geom_hline(xintercept = 0, alpha = 0.3) +
+    xlab("") +
+    ylab("Ideal Point") +
+    coord_flip() +
+    theme_bw() +
+    theme(text = element_text(family = "mono"))
+
+# Save the plot to a PNG file.
+ggsave(
+    file.path("ideal_points", "props.png"),
+    height = 10,
     width = 10
 )
