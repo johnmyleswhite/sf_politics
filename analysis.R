@@ -268,7 +268,8 @@ p <- ggplot(
     ylab("Ideal Point") +
     coord_flip() +
     theme_bw() +
-    theme(text = element_text(family = "mono"))
+    theme(text = element_text(family = "mono")) +
+    scale_color_manual(values = c("#7570b3", "#1b9e77", "#000000"))
 
 # Save the plot to a PNG file.
 ggsave(
