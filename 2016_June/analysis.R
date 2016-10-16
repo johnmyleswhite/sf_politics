@@ -153,7 +153,7 @@ p <- ggplot(
 ) +
     geom_point() +
     geom_errorbar(aes(ymin = lower, ymax = upper)) +
-    geom_hline(xintercept = 0, alpha = 0.3) +
+    geom_hline(yintercept = 0, alpha = 0.3) +
     xlab("") +
     ylab("Ideal Point") +
     coord_flip() +
@@ -263,7 +263,7 @@ p <- ggplot(
 ) +
     geom_point() +
     geom_errorbar(aes(ymin = lower, ymax = upper)) +
-    geom_hline(xintercept = 0, alpha = 0.3) +
+    geom_hline(yintercept = 0, alpha = 0.3) +
     xlab("") +
     ylab("Ideal Point") +
     coord_flip() +
@@ -288,7 +288,7 @@ p <- ggplot(
 ) +
     geom_point() +
     geom_errorbar(aes(ymin = lower, ymax = upper)) +
-    geom_hline(xintercept = 0, alpha = 0.3) +
+    geom_hline(yintercept = 0, alpha = 0.3) +
     xlab("") +
     ylab("Ideal Point") +
     coord_flip() +
