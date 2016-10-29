@@ -70,4 +70,5 @@ df %>%
     summarize(
         n = n(),
         n_null = sum(is.na(endorsement))
-    )
+    ) %>%
+    as.data.frame
