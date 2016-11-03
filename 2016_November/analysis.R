@@ -322,7 +322,7 @@ ggsave(
 p <- ggplot(
     ideal_points_candidates %>% filter(category %in% props),
     aes(
-        x = reorder(full_name, mean),
+        x = reorder(candidate, mean),
         y = mean
     )
 ) +
@@ -340,4 +340,43 @@ ggsave(
     file.path("ideal_points", "props.png"),
     height = 10,
     width = 14
+)
+
+# Binarize for simplicity
+ideal_points_endorsers <- transform(
+    ideal_points_endorsers,
+    side = ifelse(
+        mean < median(mean),
+        "Faction 1",
+        "Faction 2"
+    )
+)
+
+tmp <- inner_join(
+    ideal_points_endorsers %>% select(endorser, side),
+    endorsements,
+    by = "endorser"
+)
+
+tmp <- tmp %>%
+    group_by(category, candidate) %>%
+    summarize(
+        p_yes = round(100 * mean(endorsement, na.rm = TRUE)),
+        p_yes_faction_1 = round(100 * mean(
+            ifelse(side == "Faction 1", endorsement, NA),
+            na.rm = TRUE
+        )),
+        p_yes_faction_2 = round(100 * mean(
+            ifelse(side == "Faction 2", endorsement, NA),
+            na.rm = TRUE
+        ))
+    ) %>%
+    ungroup() %>%
+    select(-category) %>%
+    as.data.frame
+
+write.csv(
+    tmp,
+    file = file.path("ideal_points", "results.csv"),
+    row.names = FALSE
 )
