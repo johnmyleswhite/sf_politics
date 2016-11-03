@@ -1,4 +1,3 @@
-setwd("~/Tsne_stuff/sf_politics/2016_November/data")
 require(dplyr)
 require(Matrix)
 
@@ -6,6 +5,7 @@ df <- read.csv("endorsements.csv", stringsAsFactors=FALSE)
 
 df$endorse_numeric <- ifelse(df$endorsement == 'Yes', 1, 0)
 
+#Transform data frame into matrix with rows indexed by endorser and cols indexed by candidate
 endorser_index <- df %>%
   group_by(endorser) %>%
   summarise(cnt=n()) %>%
@@ -31,8 +31,13 @@ colnames(the_matrix) <- candidate_index$candidate
 
 #Check dimensionality
 require(bcv)
+#Block SVD holdout
 cv <- cv.svd.gabriel(the_matrix)
+#Speckled SVD holdout
 cv.wold <- cv.svd.wold(the_matrix)
+print(cv)
+print(cv.wold)
+
 
 require(tsne)
 endorser_tsne <- tsne(the_matrix, perplexity=6, max_iter=2000, initial_dim=5)
